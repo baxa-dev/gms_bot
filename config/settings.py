@@ -90,24 +90,24 @@ POSTGRES_HOST = env("POSTGRES_HOST")  # database host
 POSTGRES_PORT = env("POSTGRES_PORT")  # database port
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
-    }
-}
-
-
 # DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": POSTGRES_DB,
-#         "USER": POSTGRES_USER,
-#         "PASSWORD": POSTGRES_PASSWORD,
-#         "HOST": POSTGRES_HOST,
-#         "PORT": POSTGRES_PORT,
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
 #     }
 # }
+
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": POSTGRES_DB,
+        "USER": POSTGRES_USER,
+        "PASSWORD": POSTGRES_PASSWORD,
+        "HOST": POSTGRES_HOST,
+        "PORT": POSTGRES_PORT,
+    }
+}
 
 
 # Password validation
@@ -146,17 +146,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = str(BASE_DIR.joinpath('static'))
 STATIC_URL = '/static/'
-<<<<<<< HEAD
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-=======
->>>>>>> d0aacc5c3b6e993053d358c1d00dae9f16ebe76f
 
 # Uncomment if you have extra static files and a directory in your GitHub repo.
 # If you don't have this directory and have this uncommented your build will fail
-# STATICFILES_DIRS = str(BASE_DIR.joinpath('static'))
-
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
