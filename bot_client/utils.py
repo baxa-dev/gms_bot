@@ -88,7 +88,7 @@ def get_category_products_detail(product_name):
     try:
         category_product_detail = []
         obj = Product.objects.get(name=product_name)
-        category_product_detail.append(f"{settings.MEDIA_ROOT}\\{obj.image}")
+        category_product_detail.append(f"{settings.MEDIA_ROOT}/{obj.image}")
         category_product_detail.append(obj.name)
         category_product_detail.append(obj.description)
         category_product_detail.append(obj.price)
