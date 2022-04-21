@@ -34,7 +34,7 @@ class SubCategory(models.Model):
     sub_category = models.CharField(verbose_name="Подкатегория", max_length=64, unique=True, null=True, blank=True)
 
     def __str__(self):
-        return self.sub_category
+        return f"{self.sub_category} - {self.category}"
 
     class Meta:
         verbose_name = "Подкатегория"
