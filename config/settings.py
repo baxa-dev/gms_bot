@@ -162,7 +162,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# TOKEN = "5202799962:AAGzMa8qnzVk7eGUM0e9zPJAuX_dCaxRe_Y"
 TOKEN = env('BOT_TOKEN')
 
 PROXY_URL = 'https://api.telegram.org/bot'
