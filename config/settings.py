@@ -30,12 +30,12 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('DJANGO_SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = env('DJANGO_ALLOWED_HOST')
+ALLOWED_HOSTS = [env('ALLOWED_HOST')]
 
 
 # Application definition
@@ -83,31 +83,31 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-POSTGRES_DB = env("POSTGRES_DB")   # database name
-POSTGRES_PASSWORD = env("POSTGRES_PASSWORD")  # database user password
-POSTGRES_USER = env("POSTGRES_USER")  # database username
-POSTGRES_HOST = env("POSTGRES_HOST")  # database host
-POSTGRES_PORT = env("POSTGRES_PORT")  # database port
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
-#     }
-# }
+# POSTGRES_DB = env("POSTGRES_DB")   # database name
+# POSTGRES_PASSWORD = env("POSTGRES_PASSWORD")  # database user password
+# POSTGRES_USER = env("POSTGRES_USER")  # database username
+# POSTGRES_HOST = env("POSTGRES_HOST")  # database host
+# POSTGRES_PORT = env("POSTGRES_PORT")  # database port
 
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": POSTGRES_DB,
-        "USER": POSTGRES_USER,
-        "PASSWORD": POSTGRES_PASSWORD,
-        "HOST": POSTGRES_HOST,
-        "PORT": POSTGRES_PORT,
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
     }
 }
+
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": POSTGRES_DB,
+#         "USER": POSTGRES_USER,
+#         "PASSWORD": POSTGRES_PASSWORD,
+#         "HOST": POSTGRES_HOST,
+#         "PORT": POSTGRES_PORT,
+#     }
+# }
 
 
 # Password validation
@@ -147,13 +147,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Uncomment if you have extra static files and a directory in your GitHub repo.
 # If you don't have this directory and have this uncommented your build will fail
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type
